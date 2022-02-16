@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM builder</title>
+    <style>
+        .inputs {
+            margin-bottom: 2rem;
+        }
+
+        #result {
+            border: 1px solid #111;
+            padding: 1rem 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputs">
+        <div>
+            <p>
+                Block:
+            </p>
+            <input type="text" id="txt_block" name="txt_block">
+        </div>
+        <div>
+            <p>
+                Element:
+            </p>
+            <input type="text" id="txt_element" name="txt_element">
+        </div>
+        <div>
+            <p>
+                Modifier:
+            </p>
+            <input type="text" id="txt_modifier" name="txt_modifier">
+        </div>
+    </div>
+    <h3>
+        Result
+    </h3>
+    <p id="result">
+
+
+    </p>
+
+    <button id="btn_build">Build it?</button>
+    <script src="bem.js"></script>
+</body>
+</html>
