@@ -40,9 +40,7 @@ class ClassBuilder {
       builtClassName = `${this.block}__${this.element}--${this.modifier}`;
     }
 
-    console.log(builtClassName);
-
-    return builtClassName;
+    return builtClassName.replace(/\s/g, "");
   }
 }
 
