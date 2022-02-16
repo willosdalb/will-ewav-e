@@ -1,0 +1,82 @@
+[
+  {
+    "rowNumber": "1",
+    "category": "Hard Tile & Stone",
+    "productName": "Lopez Tiles",
+    "price": "0.96",
+    "manufacturer": "Corkery, Schultz and Kuhlman",
+    "productionDate": "6/15/2021"
+  },
+  {
+    "rowNumber": "2",
+    "category": "Hard Tile & Stone",
+    "productName": "Riodor Tiles",
+    "price": "0.20",
+    "manufacturer": "Cole-Kertzmann",
+    "productionDate": "4/3/2021"
+  },
+  {
+    "rowNumber": "3",
+    "category": "Granite Surfaces",
+    "productName": "Yelp Granite",
+    "price": "8.17",
+    "manufacturer": "White, Kemmer and Schumm",
+    "productionDate": "11/30/2021"
+  },
+  {
+    "rowNumber": "4",
+    "category": "Plumbing & Medical Gas",
+    "productName": "Tiny Plumbing",
+    "price": "1.58",
+    "manufacturer": "Towne-Hermann",
+    "productionDate": "10/14/2021"
+  },
+  {
+    "rowNumber": "5",
+    "category": "Glass & Glazing",
+    "productName": "Proton Glass",
+    "price": "3.50",
+    "manufacturer": "Larkin LLC",
+    "productionDate": "12/3/2021"
+  },
+  {
+    "rowNumber": "6",
+    "category": "Curb & Gutter",
+    "productName": "Hard Curb",
+    "price": "5.81",
+    "manufacturer": "Rogahn-Cummings",
+    "productionDate": "2/10/2022"
+  },
+  {
+    "rowNumber": "7",
+    "category": "Plumbing & Medical Gas",
+    "productName": "Trench Plumbing",
+    "price": "2.68",
+    "manufacturer": "Kihn-Mayert",
+    "productionDate": "7/14/2021"
+  },
+  {
+    "rowNumber": "8",
+    "category": "Plumbing & Medical Gas",
+    "productName": "Out Gas",
+    "price": "2.03",
+    "manufacturer": "Champlin, Haag and Ullrich",
+    "productionDate": "6/14/2021"
+  },
+  {
+    "rowNumber": "9",
+    "category": "Masonry & Precast",
+    "productName": "Tomorrow PreCast",
+    "price": "4.12",
+    "manufacturer": "Kutch and Sons",
+    "productionDate": "1/5/2022"
+  },
+  {
+    "rowNumber": "10",
+    "category": "Masonry & Precast",
+    "productName": "Trogan",
+    "price": "1.39",
+    "manufacturer": "Turner and Sons",
+    "productionDate": "4/8/2021"
+  }
+]

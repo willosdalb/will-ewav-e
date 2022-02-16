@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    span {
+      margin-right: .2rem;
+    }
+
+    .total-information {
+      margin-bottom: 1rem;
+
+    }
+
+    .total-information>* {
+      margin-bottom: .5rem;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+
+      border: 1px solid #111;
+      padding: 1rem;
+    }
+
+    th {
+      font-weight: 700;
+      text-align: left;
+      background-color: #1B1D24;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid #fff !important;
+    }
+
+    th:hover {
+      opacity: .7;
+      cursor: pointer;
+    }
+
+    .btn_options_wrapper {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 2rem;
+
+    }
+
+    button {
+      padding: 1rem 2rem;
+      outline: none;
+      border: none;
+      font-weight: bold;
+    }
+
+    #btn_options {
+      background-color: #ACB6D8;
+      color: #1B1D24;
+
+    }
+
+    button:hover {
+      cursor: pointer;
+      opacity: .7;
+    }
+
+    .side_panel_wrapper {
+      margin-bottom: 5rem;
+    }
+
+    .boxes>* {
+      margin-bottom: 1rem;
+    }
+
+
+
+    .inputs>* {
+      margin-bottom: 1rem;
+    }
+
+
+
+    input {
+      padding: .4rem 1rem;
+    }
+
+    #btn_apply,
+    #btn_reset {
+      color: #fff;
+    }
+
+    #btn_apply {
+      background-color: dodgerblue;
+    }
+
+    #btn_reset {
+      background-color: darkgreen;
+    }
+
+    .btn_side_panel_wrapper {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .side_panel_options {
+      background-color: #1B1D24;
+      color: #fff;
+      padding: 2rem;
+      width: 50%;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="total-information">
+    <div class="total_quantity_wrapper">
+      <span class="total-information-subtitle">Total Quantity: </span>
+      <span class="total_quantity">
+
+      </span>
+    </div>
+    <div class="total_cost_wrapper">
+      <span class="total-information-subtitle">Total Cost: </span>
+      <span>
+        $
+      </span>
+
+    </div>
+    <div class="average_price">
+      <span class="total-information-subtitle">Average Price: </span>
+      <span>
+        $
+      </span>
+    </div>
+    <div class="max_price">
+      <span class="total-information-subtitle">Most Expensive Product: </span>
+      <span>
+        $
+      </span>
+    </div>
+    <div class="min_price">
+      <span class="total-information-subtitle">Most Cheap Product: </span>
+      <span>$</span>
+
+    </div>
+  </div>
+  <table style="width:50%">
+    <thead>
+      <tr>
+        <th class="header rowNumber" data-header="rowNumber">Row Number</th>
+        <th class="header category" data-header="category">Category</th>
+        <th class="header productName" data-header="productName">Product Name</th>
+        <th class="header price" data-header="price">Price</th>
+        <th class="header manufacturer" data-header="manufacturer">Manufacturer</th>
+        <th class="header productionDate" data-header="productionDate">Production Date</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <div class="btn_options_wrapper">
+    <button id="btn_options">
+      Options
+    </button>
+  </div>
+
+  <div class="side_panel_options">
+    <div class="side_panel_wrapper">
+      <h4>Category</h4>
+      <div class="boxes category_boxes">
+
+      </div>
+    </div>
+    <div class="side_panel_wrapper">
+      <h4>Highest and Lowest Price</h4>
+      <div class="inputs">
+        <div>
+          <span>
+            Lowest Price:
+          </span>
+          <span>
+            <input type="text" name="txt_lowest_price" id="txt_lowest_price">
+          </span>
+        </div>
+      </div>
+      <div class="boxes inputs">
+        <span>
+          Highest Price:
+        </span>
+        <span>
+          <input type="text" name="txt_highest_price" id="txt_highest_price">
+        </span>
+      </div>
+    </div>
+    <div class="side_panel_wrapper">
+      <h4>Manufacturer</h4>
+      <div class="boxes manufacturer_boxes">
+
+      </div>
+    </div>
+    <div class="btn_side_panel_wrapper">
+      <button id="btn_apply">Apply</button>
+      <button id="btn_reset">Reset</button>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="products.json"></script>
+  <script type="text/javascript" src="products.js"></script>
+</body>
+</html>
