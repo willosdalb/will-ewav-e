@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+
+    <style>
+        .input_wrapper {
+            margin-bottom: 1rem;
+        }
+
+        button {
+            outline: none;
+            background-color: #1F2121;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get the sum of a, b and c</h1>
+    <div>
+        <div class="input_wrapper">
+            <p>A: </p> <input type="text" name="a" id="a">
+        </div>
+        <div class="input_wrapper">
+            <p>B: </p> <input type="text" name="b" id="b">
+        </div>
+        <div class="input_wrapper">
+            <p> C:</p><input type="text" name="c" id="c">
+        </div>
+        <div class="input_wrapper">
+            <p>ANSWER:</p> <input type="text" readonly id="answer">
+        </div>
+        <div>
+            <button id="btn_sum">Click for the answer</button>
+        </div>
+    </div>
+    <script src="sum.js"></script>
+</body>
+</html>
