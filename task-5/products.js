@@ -204,22 +204,43 @@ async function displayAllManufacturers() {
 
 // Sort products
 
+let sortDirection = "asc";
+
 async function sortProducts(products, sortByPropertyName) {
   let sortedProducts = [];
 
-  if (sortByPropertyName === "price" || sortByPropertyName === "rowNumber") {
-    sortedProducts = products.sort(
-      (a, b) => a[sortByPropertyName] - b[sortByPropertyName]
-    );
-  } else if (sortByPropertyName === "productionDate") {
-    sortedProducts = products.sort(
-      (a, b) =>
-        new Date(a[sortByPropertyName]) - new Date(b[sortByPropertyName])
-    );
-  } else {
-    sortedProducts = products.sort((a, b) =>
-      a[sortByPropertyName].localeCompare(b[sortByPropertyName])
-    );
+  if (sortDirection === "asc") {
+    if (sortByPropertyName === "price" || sortByPropertyName === "rowNumber") {
+      sortedProducts = products.sort(
+        (a, b) => a[sortByPropertyName] - b[sortByPropertyName]
+      );
+    } else if (sortByPropertyName === "productionDate") {
+      sortedProducts = products.sort(
+        (a, b) =>
+          new Date(a[sortByPropertyName]) - new Date(b[sortByPropertyName])
+      );
+    } else {
+      sortedProducts = products.sort((a, b) =>
+        a[sortByPropertyName].localeCompare(b[sortByPropertyName])
+      );
+    }
+    sortDirection = "desc";
+  } else if (sortDirection === "desc") {
+    if (sortByPropertyName === "price" || sortByPropertyName === "rowNumber") {
+      sortedProducts = products.sort(
+        (a, b) => b[sortByPropertyName] - a[sortByPropertyName]
+      );
+    } else if (sortByPropertyName === "productionDate") {
+      sortedProducts = products.sort(
+        (a, b) =>
+          new Date(b[sortByPropertyName]) - new Date(a[sortByPropertyName])
+      );
+    } else {
+      sortedProducts = products.sort((a, b) =>
+        b[sortByPropertyName].localeCompare(a[sortByPropertyName])
+      );
+    }
+    sortDirection = "asc";
   }
 
   loadProductsToTable(sortedProducts);
