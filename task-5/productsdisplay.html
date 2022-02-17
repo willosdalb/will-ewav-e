@@ -6,8 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products</title>
   <style>
+    #root {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      height: 100%;
+
     }
 
     span {
@@ -74,7 +90,7 @@
     }
 
     .side_panel_wrapper {
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
     }
 
     .boxes>* {
@@ -112,12 +128,51 @@
       margin-top: 2rem;
     }
 
-    .side_panel_options {
+    #side_panel_options {
       background-color: #1B1D24;
       color: #fff;
       padding: 2rem;
-      width: 50%;
+      width: 20%;
+      height: 100%;
+      position: absolute;
+      top: 0;
 
+      z-index: 1111;
+
+
+    }
+
+    .side_panel_hide {
+
+      left: -50000px
+    }
+
+    .side_panel_placeholder {
+      position: relative;
+    }
+
+    .close_sidebar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: white;
+      font-weight: bold;
+
+    }
+
+    .close_sidebar:hover {
+      opacity: .7;
+      cursor: pointer;
+    }
+
+    .reminder {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #FF4855;
+    }
+
+    .side_panel_wrapper h4 {
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -175,7 +230,11 @@
     </button>
   </div>
 
-  <div class="side_panel_options">
+  <div id="side_panel_options" class="side_panel_hide">
+    <div class="side_panel_placehold">
+      <div class="close_sidebar">Close</div>
+    </div>
+    <h2 class="reminder">Scroll Down to apply changes</h2>
     <div class="side_panel_wrapper">
       <h4>Category</h4>
       <div class="boxes category_boxes">

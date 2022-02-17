@@ -261,3 +261,16 @@ table.addEventListener("click", async (e) => {
     sortProducts(products, e.target.dataset.header);
   }
 });
+
+function togglePanel() {
+  const sidePanelOptions = document.getElementById("side_panel_options");
+  sidePanelOptions.classList.toggle("side_panel_hide");
+}
+
+document.getElementById("btn_options").addEventListener("click", (e) => {
+  togglePanel();
+});
+
+document.querySelector(".close_sidebar").addEventListener("click", (e) => {
+  togglePanel();
+});
