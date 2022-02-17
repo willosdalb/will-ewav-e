@@ -1,3 +1,16 @@
+let products = [];
+
+// Utils
+function roundToDecimalPlaces(num) {
+  return num.toFixed(2);
+}
+
+function isEmpty(val) {
+  return val !== "" && val !== undefined && val.length > 0 && val !== null;
+}
+
+// Get All Products
+
 async function getAllProducts() {
   const result = await fetch("./products.json");
   return await result.json();
@@ -5,7 +18,6 @@ async function getAllProducts() {
 
 async function loadProductsToTable(productsParam) {
   const tbody = document.querySelector("tbody");
-  let products = [];
 
   if (!productsParam || productsParam.length < 1) {
     products = await getAllProducts();
@@ -31,10 +43,6 @@ async function loadProductsToTable(productsParam) {
   }
 
   tbody.insertAdjacentHTML("beforeend", rows);
-}
-
-function roundToDecimalPlaces(num) {
-  return num.toFixed(2);
 }
 
 // Total Quantity
@@ -163,8 +171,8 @@ async function displayAllCategories() {
 
   categories.forEach((category) => {
     categoriesHtml += `<div>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="${category}">
-          <label for="vehicle1">${category}</label>
+          <input type="checkbox" id="${category}" name="${category}" value="${category}">
+          <label for="${category}">${category}</label>
         </div>`;
   });
 
@@ -194,8 +202,8 @@ async function displayAllManufacturers() {
 
   manufacturers.forEach((manufacturer) => {
     manufacturersHtml += `<div>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="${manufacturer}">
-          <label for="vehicle1">${manufacturer}</label>
+          <input type="checkbox" id="${manufacturer}" name="${manufacturer}" value="${manufacturer}">
+          <label for="${manufacturer}">${manufacturer}</label>
         </div>`;
   });
 
@@ -259,10 +267,7 @@ loadProductsToTable();
 
 let table = document.querySelector("table");
 table.addEventListener("click", async (e) => {
-  console.log("hello");
   if (e.target.classList.contains("header")) {
-    let products = await getAllProducts();
-
     sortProducts(products, e.target.dataset.header);
   }
 });
@@ -283,7 +288,7 @@ document.querySelector(".close_sidebar").addEventListener("click", (e) => {
 document.getElementById("btn_apply").addEventListener("click", async (e) => {
   e.preventDefault();
 
-  let products = await getAllProducts();
+  products = await getAllProducts();
 
   let categoriesChecked = Array.from(
     document.querySelectorAll(".category_boxes input[type='checkbox']:checked")
@@ -295,24 +300,43 @@ document.getElementById("btn_apply").addEventListener("click", async (e) => {
     )
   ).map((elem) => elem.value);
 
-  // sortProducts();
+  let highestPrice = document.getElementById("txt_highest_price").value;
+  let lowestPrice = document.getElementById("txt_lowest_price").value;
 
-  let searched = products.filter(
+  if (!isEmpty(highestPrice) || !lowestPrice) {
+    if (isEmpty(highestPrice) && isEmpty(lowestPrice)) {
+      alert("Highest Price and Lowest Price must have a value");
+      return;
+    }
+  }
+
+  let searchedProducts = products.filter(
     (product) =>
       categoriesChecked.includes(product.category) ||
-      manufacturersChecked.includes(product.manufacturer)
+      manufacturersChecked.includes(product.manufacturer) ||
+      (parseFloat(highestPrice) > parseFloat(product.price) &&
+        parseFloat(lowestPrice) < parseFloat(product.price))
   );
 
-  // return x.category.search(searchQuery) > -1;
-  // return x.category.toLowerCase().includes(searchQuery);
-
-  console.log(searched);
-
-  loadProductsToTable(searched);
+  loadProductsToTable(searchedProducts);
 
   togglePanel();
+});
 
-  // let productsResult = products.filter((product) => {
-  //   return product.title.search(searchQuery) > -1;
-  // });
+let btnReset = document.getElementById("btn_reset");
+
+btnReset.addEventListener("click", async (e) => {
+  products = [];
+  products = await getAllProducts();
+
+  document
+    .querySelectorAll("input[type=checkbox]")
+    .forEach((el) => (el.checked = false));
+
+  document
+    .querySelectorAll("input[type=text]")
+    .forEach((el) => (el.value = ""));
+
+  loadProductsToTable(products);
+  togglePanel();
 });
