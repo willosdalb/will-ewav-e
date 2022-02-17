@@ -257,22 +257,6 @@ displayAllManufacturers();
 
 loadProductsToTable();
 
-document.getElementById("btn_apply").addEventListener("click", (e) => {
-  e.preventDefault();
-
-  let categoriesChecked = Array.from(
-    document.querySelectorAll(".category_boxes input[type='checkbox']:checked")
-  ).map((elem) => elem.value);
-
-  let manufacturersChecked = Array.from(
-    document.querySelectorAll(
-      ".manufacturer_boxes input[type='checkbox']:checked"
-    )
-  ).map((elem) => elem.value);
-
-  sortProducts();
-});
-
 let table = document.querySelector("table");
 table.addEventListener("click", async (e) => {
   console.log("hello");
@@ -294,4 +278,41 @@ document.getElementById("btn_options").addEventListener("click", (e) => {
 
 document.querySelector(".close_sidebar").addEventListener("click", (e) => {
   togglePanel();
+});
+
+document.getElementById("btn_apply").addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  let products = await getAllProducts();
+
+  let categoriesChecked = Array.from(
+    document.querySelectorAll(".category_boxes input[type='checkbox']:checked")
+  ).map((elem) => elem.value);
+
+  let manufacturersChecked = Array.from(
+    document.querySelectorAll(
+      ".manufacturer_boxes input[type='checkbox']:checked"
+    )
+  ).map((elem) => elem.value);
+
+  // sortProducts();
+
+  let searched = products.filter(
+    (product) =>
+      categoriesChecked.includes(product.category) ||
+      manufacturersChecked.includes(product.manufacturer)
+  );
+
+  // return x.category.search(searchQuery) > -1;
+  // return x.category.toLowerCase().includes(searchQuery);
+
+  console.log(searched);
+
+  loadProductsToTable(searched);
+
+  togglePanel();
+
+  // let productsResult = products.filter((product) => {
+  //   return product.title.search(searchQuery) > -1;
+  // });
 });
